@@ -18,7 +18,6 @@ Move to bin
 mv istioctl /bin
 ```
 
-
 ## Using the istioctl command create the manifest file
 
 ```
@@ -27,3 +26,8 @@ istioctl profile dump demo > install_istio_core_components.yaml
 ```
 
 ## Deploying in the CLuster
+
+```
+istioctl install -f install_istio_core_components.yaml --set values.global.jwtPolicy=first-party-jwt
+
+```

@@ -25,9 +25,23 @@ istioctl profile dump demo > install_istio_core_components.yaml
 
 ```
 
-## Deploying in the CLuster
+## Deploying istio core components in the kubernetes Cluster
 
 ```
 istioctl install -f install_istio_core_components.yaml --set values.global.jwtPolicy=first-party-jwt
 
 ```
+## Deploying kiali,grafana,jagger,prometheus components in the kubernetes Cluster
+
+```
+kubectl apply -f install_istio_addon_grafana.yaml
+kubectl apply -f install_istio_addon_jaeger.yaml
+kubectl apply -f install_istio_addon_kiali.yaml
+kubectl apply -f install_istio_addon_prometheus.yaml
+```
+
+## Accessing
+
+kiali -   http://10.157.50.15:15008
+Jagger - http://10.157.50.15:15009
+Grafana -  http://10.157.50.15:15010

@@ -56,6 +56,7 @@ kubectl label namespace default  istio-injection=enabled
 ```
 cd microservice_deployment
 
+helm install --generate-name .
 
 
 ```

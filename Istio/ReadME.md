@@ -4,8 +4,7 @@
 ## Downloading the istioctl 
 
 ```
-wget 
-https://github.com/istio/istio/releases/download/1.8.2/istioctl-1.8.2-linux-amd64.tar.gz
+wget https://github.com/istio/istio/releases/download/1.8.2/istioctl-1.8.2-linux-amd64.tar.gz
 ```
 Unzip the package
 
@@ -45,3 +44,18 @@ kubectl apply -f install_istio_addon_prometheus.yaml
 kiali -   http://10.157.50.15:15008
 Jagger - http://10.157.50.15:15009
 Grafana -  http://10.157.50.15:15010
+
+## Labeling the default namespace
+
+```
+kubectl label namespace default  istio-injection=enabled
+
+```
+## Deploying the Microservice in the default namespace
+
+```
+cd microservice_deployment
+
+
+
+```

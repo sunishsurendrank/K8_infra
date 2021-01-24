@@ -16,7 +16,7 @@ Move to bin
 
 ```
 mv istioctl /bin
-``
+```
 
 
 ## Using the istioctl command create the manifest file

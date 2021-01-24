@@ -60,3 +60,9 @@ helm install --generate-name .
 
 
 ```
+# Accesing the microservice
+
+```
+Frontend : http://10.157.50.15:15005
+
+```

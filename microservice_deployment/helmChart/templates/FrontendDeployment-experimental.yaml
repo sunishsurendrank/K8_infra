@@ -18,7 +18,7 @@ spec:
         version: experimental
     spec:
       containers:
-      - image: sunishsurendrank/frontend:{{.Values.frontendTag}}
+      - image: sunishsurendrank/frontend:{{.Values.frontendExperimentalTag}}
         name: frontend
         ports:
         - containerPort: 80

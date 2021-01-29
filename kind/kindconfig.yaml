@@ -36,3 +36,8 @@ nodes:
     hostPort: 15010
     listenAddress: "0.0.0.0"
     protocol: TCP
+  # optional: setting the below port for go Grafana.
+  - containerPort: 31074
+    hostPort: 15011
+    listenAddress: "0.0.0.0"
+    protocol: TCP

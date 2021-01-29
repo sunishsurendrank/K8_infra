@@ -25,7 +25,7 @@ metadata:
 spec:
   hosts:
     - "*"
-  gateway: 
+  gateways: 
     - ingress-gateway-frontend
   http:
     - route:

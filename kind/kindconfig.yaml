@@ -13,12 +13,12 @@ nodes:
     protocol: TCP
   # optional: setting the below port for python microservice.
   - containerPort: 30002
-    hostPort: 15006
+    hostPort: 5000
     listenAddress: "0.0.0.0"
     protocol: TCP
   # optional: setting the below port for go microservice.
   - containerPort: 30003
-    hostPort: 15007
+    hostPort: 9090
     listenAddress: "0.0.0.0"
     protocol: TCP
   # optional: setting the below port for go kiali.

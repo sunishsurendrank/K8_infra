@@ -6,7 +6,7 @@ metadata:
     app: frontenddeployment
   name: frontenddeployment-experimental
 spec:
-  replicas: 1
+  replicas: {{.Values.frontendExperimentalReplicas}}
   selector:
     matchLabels:
       type: frontend-experimental
@@ -18,7 +18,7 @@ spec:
         version: frontend-experimental
     spec:
       containers:
-      - image: sunishsurendrank/frontend:Experimental
+      - image: sunishsurendrank/frontend:{{.Values.frontendTag}}
         name: frontend
         ports:
         - containerPort: 80

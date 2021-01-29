@@ -41,7 +41,7 @@ spec:
 kind: DestinationRule
 apiVersion: networking.istio.io/v1alpha3
 metadata:
-  name: frontend-destinationRule
+  name: frontend-destinationrule
   namespace: default
   labels:
     kiali_wizard: request_routing

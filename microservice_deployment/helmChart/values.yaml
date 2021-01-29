@@ -1,6 +1,6 @@
-frontendReplicas: 4
-pythonApiReplicas: 4
-goApiReplicas: 4
+frontendReplicas: 1
+pythonApiReplicas: 1
+goApiReplicas: 1
 pythonwebserviceTag: v4
 gowebserviceTag: v80
 frontendTag: v10

@@ -35,8 +35,9 @@ istioctl install -f install_istio_core_components.yaml --set values.global.jwtPo
 ```
 kubectl apply -f install_istio_addon_grafana.yaml
 kubectl apply -f install_istio_addon_jaeger.yaml
-kubectl apply -f install_istio_addon_kiali.yaml
 kubectl apply -f install_istio_addon_prometheus.yaml
+kubectl apply -f install_istio_addon_kiali.yaml
+
 ```
 
 ## Accessing

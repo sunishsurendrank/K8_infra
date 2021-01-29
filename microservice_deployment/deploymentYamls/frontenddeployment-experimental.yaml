@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    type: frontenddeployment-experimental
+    app: frontenddeployment
+  name: frontenddeployment-experimental
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: frontend-experimental
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: frontend
+        type: frontend-experimental
+    spec:
+      containers:
+      - image: sunishsurendrank/frontend:Experimental
+        name: frontend
+        ports:
+        - containerPort: 80
+

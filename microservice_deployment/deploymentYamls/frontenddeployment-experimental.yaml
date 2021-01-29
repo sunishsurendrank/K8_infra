@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: frontend
-        type: frontend-experimental
+        version: frontend-experimental
     spec:
       containers:
       - image: sunishsurendrank/frontend:Experimental

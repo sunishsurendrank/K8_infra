@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: frontend
-        version: frontend-original
+        version: original
     spec:
       containers:
       - image: sunishsurendrank/frontend:{{.Values.frontendTag}}

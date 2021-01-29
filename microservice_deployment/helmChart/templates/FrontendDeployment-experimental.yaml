@@ -9,13 +9,13 @@ spec:
   replicas: {{.Values.frontendExperimentalReplicas}}
   selector:
     matchLabels:
-      type: frontend-experimental
+      type: frontend
   strategy: {}
   template:
     metadata:
       labels:
         app: frontend
-        version: frontend-experimental
+        version: experimental
     spec:
       containers:
       - image: sunishsurendrank/frontend:{{.Values.frontendTag}}

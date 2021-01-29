@@ -9,7 +9,7 @@ spec:
   replicas: {{.Values.frontendExperimentalReplicas}}
   selector:
     matchLabels:
-      type: frontend
+      app: frontend
   strategy: {}
   template:
     metadata:

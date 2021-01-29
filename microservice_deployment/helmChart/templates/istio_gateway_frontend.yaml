@@ -36,7 +36,7 @@ spec:
         - destination:
             host: frontend-clusterip.default.svc.cluster.local
             subset: experimental
-          weight: 100
+          weight: 90
 ---
 kind: DestinationRule
 apiVersion: networking.istio.io/v1alpha3

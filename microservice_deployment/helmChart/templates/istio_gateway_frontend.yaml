@@ -18,7 +18,7 @@ spec:
 kind: VirtualService
 apiVersion: networking.istio.io/v1alpha3
 metadata:
-  name: frontendVirtualService
+  name: frontend-virtualservice
   namespace: default
   labels:
     kiali_wizard: request_routing
@@ -30,23 +30,23 @@ spec:
   http:
     - route:
         - destination:
-            host: frontendClusterIP.default.svc.cluster.local
+            host: frontend-clusterip.default.svc.cluster.local
             subset: original
           weight: 10
         - destination:
-            host: frontendClusterIP.default.svc.cluster.local
+            host: frontend-clusterip.default.svc.cluster.local
             subset: experimental
           weight: 100
 ---
 kind: DestinationRule
 apiVersion: networking.istio.io/v1alpha3
 metadata:
-  name: frontendDestinationRule
+  name: frontend-destinationRule
   namespace: default
   labels:
     kiali_wizard: request_routing
 spec:
-  host: frontendClusterIP.default.svc.cluster.local
+  host: frontend-clusterip.default.svc.cluster.local
   subsets:
     - labels:
         version: original

@@ -1,0 +1,32 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: example-pod-claim
+  annotations:
+    nfs.io/storage-path: "example-pod-claim" 
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    command: ["/bin/sh","-c"]
+    args: ["echo $(hostname) >> /opt/log;sleep 300;"]
+    volumeMounts:
+    - mountPath: /opt
+      name: data-volumes
+  volumes:
+    - name: data-volumes
+      persistentVolumeClaim:
+        claimName: example-pod-claim

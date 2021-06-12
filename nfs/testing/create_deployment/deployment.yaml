@@ -1,0 +1,41 @@
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: example-deployment-claim
+  annotations:
+    nfs.io/storage-path: "example-deployment-claim" 
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+    spec:
+     containers:
+      - name: alpine
+        image: alpine
+        command: ["/bin/sh","-c"]
+        args: ["echo $(hostname) >> /opt/log;sleep 300;"]
+        volumeMounts:
+        - mountPath: /opt
+          name: deployment-volume
+     volumes:
+     - name: deployment-volume
+       persistentVolumeClaim:
+           claimName: example-deployment-claim

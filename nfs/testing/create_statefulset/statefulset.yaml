@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: example-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: example-statefulset # has to match .spec.template.metadata.labels
+  serviceName: "example-statefulset-service"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: example-statefulset # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: alpine
+        image: alpine
+        command: ["/bin/sh","-c"]
+        args: ["echo $(hostname) >> /opt/log;sleep 300;"]
+        volumeMounts:
+        - name: data-volume
+          mountPath: /opt
+  volumeClaimTemplates:
+  - metadata:
+      name: data-volume
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: nfs-client
+      resources:
+        requests:
+           storage: 1Mi
